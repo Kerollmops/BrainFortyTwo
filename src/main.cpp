@@ -6,7 +6,7 @@
 /*   By: crenault <crenault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/17 14:42:01 by crenault          #+#    #+#             */
-/*   Updated: 2015/04/17 18:41:42 by crenault         ###   ########.fr       */
+/*   Updated: 2015/04/17 20:52:17 by crenault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,5 @@ int					main(/*int argc, char const *argv[]*/void) {
 
 		std::cerr << "Error: reading file" << std::endl;
 	}
-
-	char c;
-	std::cin >> c;
-
 	return 0;
 }
