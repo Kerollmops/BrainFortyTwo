@@ -6,7 +6,7 @@
 /*   By: crenault <crenault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/17 14:43:07 by crenault          #+#    #+#             */
-/*   Updated: 2015/04/17 20:55:26 by crenault         ###   ########.fr       */
+/*   Updated: 2015/04/17 21:08:43 by crenault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,6 +122,7 @@ bool					MindOpen::_unstackWhile(IInstruction * instr) {
 		this->_whiles.empty() == false) {
 
 		this->_whiles.pop();
+		this->_instructions.push(instr);
 		return true;
 	}
 	return false;
