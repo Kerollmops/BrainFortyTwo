@@ -6,7 +6,7 @@
 /*   By: crenault <crenault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/17 14:43:07 by crenault          #+#    #+#             */
-/*   Updated: 2015/04/17 18:23:31 by crenault         ###   ########.fr       */
+/*   Updated: 2015/04/17 18:44:14 by crenault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,7 @@ MindOpen::MindOpen(MindOpen const &src) {
 
 MindOpen::~MindOpen() {
 
-	#pragma message("TODO")
-	/*for (std::list<IInstruction*>::iterator it = this->_instructions.begin();
-		it != this->_instructions.end(); ++it) {
-
-		delete *it;
-	}*/
+	//
 }
 
 MindOpen				&MindOpen::operator=(MindOpen const &rhs) {
