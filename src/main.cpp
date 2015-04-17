@@ -6,13 +6,13 @@
 /*   By: crenault <crenault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/17 14:42:01 by crenault          #+#    #+#             */
-/*   Updated: 2015/04/17 21:25:04 by crenault         ###   ########.fr       */
+/*   Updated: 2015/04/17 21:41:58 by crenault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/MindOpen.hpp"
 
-int					main(/*int argc, char const *argv[]*/void) {
+int					main(int argc, char const **argv) {
 
 	MindOpen		mindOpen;
 
@@ -42,7 +42,7 @@ int					main(/*int argc, char const *argv[]*/void) {
 	}
 
 	// ignore list creation
-	bool			checkIgnore = true;
+	/*bool			checkIgnore = true;
 	checkIgnore &= mindOpen.addIgnore(' ');
 	checkIgnore &= mindOpen.addIgnore('\t');
 	checkIgnore &= mindOpen.addIgnore('\n');
@@ -50,12 +50,24 @@ int					main(/*int argc, char const *argv[]*/void) {
 
 		std::cerr << "Error: adding ignore char" << std::endl;
 		return 1;
+	}*/
+	bool			checkIgnore = true;
+	checkIgnore = mindOpen.ignoreOther();
+	if (checkIgnore == false) {
+
+		std::cerr << "Error: adding ignore char" << std::endl;
+		return 1;
 	}
 
 	// launching
-	if (mindOpen.readFile("test.bf") == false) {
+	if (argc != 2) {
 
-		std::cerr << "Error: reading file" << std::endl;
+		std::cout << "Usage: " << argv[0] << " file" << std::endl;
+		return 1;
+	}
+	if (mindOpen.readFile(argv[1]) == false) {
+
+		std::cerr << "Error: reading file, no accent plz ;)" << std::endl;
 		return 1;
 	}
 	if (mindOpen.execute() == false) {

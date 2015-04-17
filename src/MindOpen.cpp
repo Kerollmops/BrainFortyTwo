@@ -6,7 +6,7 @@
 /*   By: crenault <crenault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/17 14:43:07 by crenault          #+#    #+#             */
-/*   Updated: 2015/04/17 21:20:19 by crenault         ###   ########.fr       */
+/*   Updated: 2015/04/17 21:42:32 by crenault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,19 @@ bool					MindOpen::addCharIInstr(char c, IInstruction *instr) {
 	return true;
 }
 
+bool					MindOpen::ignoreOther(void) {
+
+	for (char c = 0; c < std::numeric_limits<char>::max(); ++c) {
+
+		if (this->_charIInstr.find(c) == this->_charIInstr.end()) {
+
+			if (this->addIgnore(c) == false)
+				return false;
+		}
+	}
+	return true;
+}
+
 bool					MindOpen::addIgnore(char c) {
 
 	// if char to allready exist in char to use
@@ -78,7 +91,7 @@ bool					MindOpen::readFile(std::string path) {
 	return true;
 }
 
-bool					MindOpen::_getIInstr(char &c) {
+bool					MindOpen::_getIInstr(char const &c) {
 
 	std::set<char>::iterator					itIgnore;
 	std::map<char, IInstruction *>::iterator	itInstr;
