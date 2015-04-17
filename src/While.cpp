@@ -6,7 +6,7 @@
 /*   By: crenault <crenault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/17 15:15:56 by crenault          #+#    #+#             */
-/*   Updated: 2015/04/17 18:36:01 by crenault         ###   ########.fr       */
+/*   Updated: 2015/04/17 18:39:18 by crenault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,6 @@ bool				While::execute(Memory &mem) {
 				return false;
 			}
 		}
-		IncPointer().execute(mem);
-		std::cout << "> " << mem.data() << std::endl;
 	}
 	return true;
 }

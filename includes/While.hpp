@@ -6,7 +6,7 @@
 /*   By: crenault <crenault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/17 15:15:56 by crenault          #+#    #+#             */
-/*   Updated: 2015/04/17 18:26:17 by crenault         ###   ########.fr       */
+/*   Updated: 2015/04/17 18:39:21 by crenault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include <deque>
 
 # include "IInstruction.hpp"
-# include "IncPointer.hpp"
 
 class While : public IInstruction {
 
