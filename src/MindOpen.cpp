@@ -6,7 +6,7 @@
 /*   By: crenault <crenault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/17 14:43:07 by crenault          #+#    #+#             */
-/*   Updated: 2015/04/17 21:08:43 by crenault         ###   ########.fr       */
+/*   Updated: 2015/04/17 21:20:19 by crenault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,11 @@ MindOpen				&MindOpen::operator=(MindOpen const &rhs) {
 bool					MindOpen::addCharIInstr(char c, IInstruction *instr) {
 
 	// if char to allready exist in ignore list
-	if (this->_toIgnore.find(c) != this->_toIgnore.end())
+	if (this->_charIInstr.find(c) != this->_charIInstr.end() ||
+		this->_toIgnore.find(c) != this->_toIgnore.end()) {
+
 		return false;
+	}
 
 	this->_charIInstr[c] = instr;
 	return true;
