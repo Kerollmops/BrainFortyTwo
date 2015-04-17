@@ -6,7 +6,7 @@
 /*   By: crenault <crenault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/16 16:44:36 by cchevall          #+#    #+#             */
-/*   Updated: 2015/04/17 20:58:59 by crenault         ###   ########.fr       */
+/*   Updated: 2015/04/18 00:11:28 by crenault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ bool					ReadChar::execute(Memory &mem) {
 	char			c = 0;
 
 	if (std::cin.eof() == false)
-		std::cin >> c;
+		std::cin >> std::noskipws >> c;
 	mem.data() = c;
 	return true;
 }
