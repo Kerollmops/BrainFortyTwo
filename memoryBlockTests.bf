@@ -1,5 +1,13 @@
-#					debug mode display value char
+hastag: debug mode display value char
+
+#
+>
++#
+<
 >[
+
 	code
+	,[.,]
+
 	<
 ]<[>]

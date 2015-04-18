@@ -6,7 +6,7 @@
 /*   By: crenault <crenault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/16 16:42:09 by cchevall          #+#    #+#             */
-/*   Updated: 2015/04/18 15:24:35 by crenault         ###   ########.fr       */
+/*   Updated: 2015/04/18 15:36:36 by crenault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ WriteValueInt::~WriteValueInt() {
 
 bool					WriteValueInt::execute(Memory &mem) {
 
-	std::cout << (unsigned int)(mem.data());
+	std::cout << (unsigned int)(mem.data()) << " ";
 	return true;
 }
 
