@@ -6,7 +6,7 @@
 #    By: crenault <crenault@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/04/01 14:48:08 by cchevall          #+#    #+#              #
-#    Updated: 2015/04/17 18:40:54 by crenault         ###   ########.fr        #
+#    Updated: 2015/04/18 14:31:59 by crenault         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@ SRC += src/DecValue.cpp
 SRC += src/IncValue.cpp
 SRC += src/ReadChar.cpp
 SRC += src/WriteValue.cpp
+SRC += src/ErrorDisp.cpp
 OBJS = $(SRC:.cpp=.o)
 
 all: $(NAME)

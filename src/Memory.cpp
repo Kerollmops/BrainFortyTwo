@@ -6,7 +6,7 @@
 /*   By: crenault <crenault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/17 14:49:05 by crenault          #+#    #+#             */
-/*   Updated: 2015/04/18 02:25:29 by crenault         ###   ########.fr       */
+/*   Updated: 2015/04/18 14:43:35 by crenault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,21 @@ Memory				&Memory::operator=(Memory const &rhs) {
 	}
 
 	return *this;
+}
+
+char const			&Memory::operator[](size_t pos) const {
+
+	return this->_mem[pos];
+}
+
+char const			&Memory::data(void) const {
+
+	return *(this->_mem + this->_offset);
+}
+
+size_t const		&Memory::offset(void) const {
+
+	return this->_offset;
 }
 
 size_t const		&Memory::size(void) const {

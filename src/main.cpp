@@ -6,7 +6,7 @@
 /*   By: crenault <crenault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/17 14:42:01 by crenault          #+#    #+#             */
-/*   Updated: 2015/04/17 21:41:58 by crenault         ###   ########.fr       */
+/*   Updated: 2015/04/18 14:03:19 by crenault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,12 @@
 int					main(int argc, char const **argv) {
 
 	MindOpen		mindOpen;
+
+	if (argc != 2) {
+
+		std::cout << "Usage: " << argv[0] << " file" << std::endl;
+		return 1;
+	}
 
 	// instruction creation
 	While			whileInst;
@@ -26,6 +32,7 @@ int					main(int argc, char const **argv) {
 	ReadChar		readCharInst;
 	WriteValue		writeValueInst;
 
+	// instruction allocation
 	bool			checkCharIInstr = true;
 	checkCharIInstr &= mindOpen.addCharIInstr('[', &whileInst);
 	checkCharIInstr &= mindOpen.addCharIInstr(']', &closeWhileInst);
@@ -41,16 +48,7 @@ int					main(int argc, char const **argv) {
 		return 1;
 	}
 
-	// ignore list creation
-	/*bool			checkIgnore = true;
-	checkIgnore &= mindOpen.addIgnore(' ');
-	checkIgnore &= mindOpen.addIgnore('\t');
-	checkIgnore &= mindOpen.addIgnore('\n');
-	if (checkIgnore == false) {
-
-		std::cerr << "Error: adding ignore char" << std::endl;
-		return 1;
-	}*/
+	// ignore list creation and allocation
 	bool			checkIgnore = true;
 	checkIgnore = mindOpen.ignoreOther();
 	if (checkIgnore == false) {
@@ -60,11 +58,6 @@ int					main(int argc, char const **argv) {
 	}
 
 	// launching
-	if (argc != 2) {
-
-		std::cout << "Usage: " << argv[0] << " file" << std::endl;
-		return 1;
-	}
 	if (mindOpen.readFile(argv[1]) == false) {
 
 		std::cerr << "Error: reading file, no accent plz ;)" << std::endl;

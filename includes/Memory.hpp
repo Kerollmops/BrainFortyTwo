@@ -6,7 +6,7 @@
 /*   By: crenault <crenault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/17 14:49:05 by crenault          #+#    #+#             */
-/*   Updated: 2015/04/17 17:49:09 by crenault         ###   ########.fr       */
+/*   Updated: 2015/04/18 14:29:53 by crenault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,11 @@ public:
 	Memory(Memory const &);
 	virtual ~Memory();
 	Memory			&operator=(Memory const &);
+
+	// debug
+	char const		&operator[](size_t pos) const;
+	char const		&data(void) const;
+	size_t const	&offset(void) const;
 
 	size_t const	&size(void) const;
 	char			&data(void);

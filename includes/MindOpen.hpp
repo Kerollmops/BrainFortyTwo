@@ -6,7 +6,7 @@
 /*   By: crenault <crenault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/17 14:42:56 by crenault          #+#    #+#             */
-/*   Updated: 2015/04/17 21:39:59 by crenault         ###   ########.fr       */
+/*   Updated: 2015/04/18 14:31:00 by crenault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@
 # include "IncValue.hpp"
 # include "ReadChar.hpp"
 # include "WriteValue.hpp"
+# include "ErrorDisp.hpp"
 
 class MindOpen {
 
@@ -47,6 +48,11 @@ public:
 	bool						execute(void);
 
 private:
+	// errors parsing
+	void						_countPos(const char &c, size_t &l, size_t &col) const;
+	void						_printParsingError(size_t &l, size_t &col) const;
+
+	// instructions managing
 	bool						_getIInstr(char const &c);
 	bool						_addIInstr(IInstruction *instr);
 	bool						_unstackWhile(IInstruction * inst);

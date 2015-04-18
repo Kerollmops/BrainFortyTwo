@@ -6,7 +6,7 @@
 /*   By: crenault <crenault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/17 14:43:07 by crenault          #+#    #+#             */
-/*   Updated: 2015/04/17 21:42:32 by crenault         ###   ########.fr       */
+/*   Updated: 2015/04/18 14:42:49 by crenault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,13 +75,19 @@ bool					MindOpen::readFile(std::string path) {
 
 	std::ifstream		ifs;
 	char				c;
+	size_t				line = 1;
+	size_t				col = 0;
 
 	ifs.open(path.c_str(), std::ifstream::in);
 	c = ifs.get();
 	while (ifs.good()) {
 
+		// count lines
+		this->_countPos(c, line, col);
+
 		if (this->_getIInstr(c) == false) {
 
+			this->_printParsingError(line, col);
 			ifs.close();
 			return false;
 		}
@@ -89,6 +95,22 @@ bool					MindOpen::readFile(std::string path) {
 	}
 	ifs.close();
 	return true;
+}
+
+void					MindOpen::_printParsingError(size_t &line, size_t &col) const {
+
+	std::cerr
+	<< "Location: "
+	<< "line " << line
+	<< ", column " << col
+	<< std::endl;
+}
+
+void					MindOpen::_countPos(const char &c, size_t &line, size_t &col) const {
+
+	line = (c == '\n') ? line + 1 : line;
+	col++;
+	col = (c == '\n') ? 0 : col;
 }
 
 bool					MindOpen::_getIInstr(char const &c) {
@@ -111,20 +133,18 @@ bool					MindOpen::_addIInstr(IInstruction *instr) {
 
 	While *				tmp = NULL;
 
-	if (this->_unstackWhile(instr) == true) {
+	// if closeWhile then unstack while
+	this->_unstackWhile(instr);
 
-		return true;
-	}
+	// add the new instruction to the good queue
 	if (this->_whiles.empty() == false) {
-
 		this->_whiles.top()->addInstr(instr);
-		if ((tmp = dynamic_cast<While *>(instr)) != NULL) {
-
-			this->_whiles.push(tmp);
-		}
-		return true;
 	}
-	this->_instructions.push(instr);
+	else {
+		this->_instructions.push(instr);
+	}
+
+	// push to while
 	if ((tmp = dynamic_cast<While *>(instr)) != NULL) {
 
 		this->_whiles.push(tmp);
@@ -138,7 +158,6 @@ bool					MindOpen::_unstackWhile(IInstruction * instr) {
 		this->_whiles.empty() == false) {
 
 		this->_whiles.pop();
-		this->_instructions.push(instr);
 		return true;
 	}
 	return false;
@@ -146,13 +165,14 @@ bool					MindOpen::_unstackWhile(IInstruction * instr) {
 
 bool					MindOpen::execute(void) {
 
-	Memory			memory(30000);
+	Memory				memory(30000);
 
 	while (this->_instructions.empty() == false) {
 
 		if (this->_instructions.front()->execute(memory) == false) {
 
-			return (false);
+			ErrorDisp::execution(this->_instructions.front(), memory);
+			return false;
 		}
 		this->_instructions.pop();
 	}

@@ -6,7 +6,7 @@
 /*   By: crenault <crenault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/16 15:46:52 by cchevall          #+#    #+#             */
-/*   Updated: 2015/04/17 17:48:06 by crenault         ###   ########.fr       */
+/*   Updated: 2015/04/18 14:04:54 by crenault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ DecPointer::~DecPointer() {
 
 }
 
-bool					DecPointer::execute(Memory & memory) {
+bool					DecPointer::execute(Memory &memory) {
 
 	if (memory.offset() > 0) {
 

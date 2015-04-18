@@ -6,7 +6,7 @@
 /*   By: crenault <crenault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/17 15:15:56 by crenault          #+#    #+#             */
-/*   Updated: 2015/04/17 21:42:03 by crenault         ###   ########.fr       */
+/*   Updated: 2015/04/18 14:43:46 by crenault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ bool				While::execute(Memory &mem) {
 
 			if ((*it)->execute(mem) == false) {
 
+				ErrorDisp::execution(*it, mem);
 				return false;
 			}
 		}
