@@ -6,7 +6,7 @@
 /*   By: crenault <crenault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/17 14:49:05 by crenault          #+#    #+#             */
-/*   Updated: 2015/04/17 14:59:12 by crenault         ###   ########.fr       */
+/*   Updated: 2015/04/18 02:25:29 by crenault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,9 @@ Memory::Memory(size_t memSize)
 	_offset(0),
 	_mem(new char[this->_memSize]) {
 
-	//
+	for (size_t i = 0; i < this->_memSize; ++i) {
+		this->_mem[i] = 0;
+	}
 }
 
 Memory::Memory(Memory const &src) {
