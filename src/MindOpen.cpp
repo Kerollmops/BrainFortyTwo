@@ -6,7 +6,7 @@
 /*   By: crenault <crenault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/17 14:43:07 by crenault          #+#    #+#             */
-/*   Updated: 2015/04/18 14:42:49 by crenault         ###   ########.fr       */
+/*   Updated: 2015/04/18 15:05:06 by crenault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ bool					MindOpen::readFile(std::string path) {
 
 		if (this->_getIInstr(c) == false) {
 
-			this->_printParsingError(line, col);
+			ErrorDisp::parsing(line, col);
 			ifs.close();
 			return false;
 		}
@@ -95,15 +95,6 @@ bool					MindOpen::readFile(std::string path) {
 	}
 	ifs.close();
 	return true;
-}
-
-void					MindOpen::_printParsingError(size_t &line, size_t &col) const {
-
-	std::cerr
-	<< "Location: "
-	<< "line " << line
-	<< ", column " << col
-	<< std::endl;
 }
 
 void					MindOpen::_countPos(const char &c, size_t &line, size_t &col) const {
@@ -131,7 +122,7 @@ bool					MindOpen::_getIInstr(char const &c) {
 
 bool					MindOpen::_addIInstr(IInstruction *instr) {
 
-	While *				tmp = NULL;
+	While				*tmp = NULL;
 
 	// if closeWhile then unstack while
 	this->_unstackWhile(instr);

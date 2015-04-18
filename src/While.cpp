@@ -6,7 +6,7 @@
 /*   By: crenault <crenault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/17 15:15:56 by crenault          #+#    #+#             */
-/*   Updated: 2015/04/18 14:43:46 by crenault         ###   ########.fr       */
+/*   Updated: 2015/04/18 15:03:15 by crenault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,7 @@ While::While(While const &src) {
 
 While::~While() {
 
-	/*while (this->_instructions.empty() == false) {
-
-		delete this->_instructions.front();
-		this->_instructions.pop_front();
-	}*/
+	//
 }
 
 While				&While::operator=(While const &rhs) {

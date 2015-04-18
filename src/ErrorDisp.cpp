@@ -6,7 +6,7 @@
 /*   By: crenault <crenault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/18 14:10:28 by crenault          #+#    #+#             */
-/*   Updated: 2015/04/18 14:52:09 by crenault         ###   ########.fr       */
+/*   Updated: 2015/04/18 15:04:37 by crenault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,18 @@ void			ErrorDisp::execution(IInstruction const *instr, Memory const &mem) {
 		for (size_t i = minMem; i < maxMem; ++i) {
 
 			std::cerr
-			<< std::setw(0) << " "
-			<< std::setw(5) << int(mem[i])
+			<< std::setw(6) << std::internal << int(mem[i])
 			<< std::setw(1) << " ";
 		}
 	std::cerr << std::endl;
 }
+
+void			ErrorDisp::parsing(size_t &line, size_t &col) {
+
+	std::cerr
+	<< "Location: "
+	<< "line " << line
+	<< ", column " << col
+	<< std::endl;
+}
+
