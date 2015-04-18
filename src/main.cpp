@@ -6,7 +6,7 @@
 /*   By: crenault <crenault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/17 14:42:01 by crenault          #+#    #+#             */
-/*   Updated: 2015/04/18 14:03:19 by crenault         ###   ########.fr       */
+/*   Updated: 2015/04/18 15:25:10 by crenault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int					main(int argc, char const **argv) {
 	IncValue		incValueInst;
 	ReadChar		readCharInst;
 	WriteValue		writeValueInst;
+	WriteValueInt	writeValueIntInst;
 
 	// instruction allocation
 	bool			checkCharIInstr = true;
@@ -42,6 +43,10 @@ int					main(int argc, char const **argv) {
 	checkCharIInstr &= mindOpen.addCharIInstr('+', &incValueInst);
 	checkCharIInstr &= mindOpen.addCharIInstr(',', &readCharInst);
 	checkCharIInstr &= mindOpen.addCharIInstr('.', &writeValueInst);
+
+	// debug mode can be delete
+	checkCharIInstr &= mindOpen.addCharIInstr('#', &writeValueIntInst);
+
 	if (checkCharIInstr == false) {
 
 		std::cerr << "Error: adding char instruction" << std::endl;

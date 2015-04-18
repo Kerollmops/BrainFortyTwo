@@ -6,7 +6,7 @@
 /*   By: crenault <crenault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/17 14:42:56 by crenault          #+#    #+#             */
-/*   Updated: 2015/04/18 15:04:49 by crenault         ###   ########.fr       */
+/*   Updated: 2015/04/18 15:20:55 by crenault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@
 # include "IncValue.hpp"
 # include "ReadChar.hpp"
 # include "WriteValue.hpp"
+# include "WriteValueInt.hpp"
 # include "ErrorDisp.hpp"
 
 class MindOpen {
